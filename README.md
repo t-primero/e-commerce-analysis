@@ -78,6 +78,6 @@ _Source: «add dataset source / Kaggle link»_
 
 ## 📁 Repository Contents
 
-- `analysis.ipynb` — full analysis notebook (queries + visualizations)
+- `ecommerce_analysis.ipynb` — full analysis notebook (queries + visualizations)
 - `ecommerce_sales_34500.csv` — the dataset
 - Full write-up: [t-primero.github.io](https://t-primero.github.io)
