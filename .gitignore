@@ -1,0 +1,7 @@
+# Dataset (download from Kaggle, kept local only)
+ecommerce_sales_34500.csv
+
+# Common junk worth ignoring too
+.DS_Store
+.Rhistory
+_site/
