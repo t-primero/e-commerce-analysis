@@ -68,16 +68,21 @@ region" — were identified and corrected by normalizing to comparable, per-unit
 
 ## 🧠 Techniques Demonstrated
 
-- Window functions — `DENSE_RANK()` for top-N-per-category, `LAG()` for
+- **Window functions** — `DENSE_RANK()` for top-N-per-category, `LAG()` for
   month-over-month growth
-- Common Table Expressions (CTEs) for multi-step logic
-- `CASE` expressions for bucketing (age groups, discount tiers)
-- Aggregation and grouping across multiple dimensions
-- Data-quality checks for null and disguised-missing values
+- **CTEs** for multi-step logic, including a database-portable rewrite of a
+  `QUALIFY` filter for engines that don't support it
+- **`CASE` expressions** for bucketing (age groups, discount tiers)
+- **Column verification** — reconciling `total_amount` and `profit_margin`
+  against source columns before trusting derived fields
+- **Normalizing to comparable units** — per-order and per-customer measures to
+  avoid bucket-size and group-size artifacts
+- **Data-quality checks** for null and disguised-missing values
 
 ## 📊 Sample Query
 
-Top 3 revenue-generating products in each category:
+Top 3 revenue-generating products in each category (shown here with `QUALIFY`;
+the notebook includes a portable CTE variant for databases without it):
 
 ```sql
 SELECT
@@ -100,7 +105,7 @@ Sample e-commerce dataset of ~34,500 orders. Columns include order and customer
 IDs, product category, price, discount, quantity, order date, region, return
 status, total amount, shipping cost, profit margin, and customer demographics.
 
-_Source: [E-commerce Sales Transactions Dataset (Kaggle)](https://www.kaggle.com/datasets/miadul/e-commerce-sales-transactions-dataset/data)
+Source: [E-commerce Sales Transactions Dataset (Kaggle)](https://www.kaggle.com/datasets/miadul/e-commerce-sales-transactions-dataset/data)
 
 ## 📁 Repository Contents
 
