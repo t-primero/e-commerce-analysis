@@ -25,14 +25,40 @@ production.
 5. **Who are the most valuable customers?** Revenue broken down by customer age
    group, gender, and region.
 
+
 ## 🔑 Key Findings
 
-- «e.g., The top 3 products per category account for ~X% of that category's revenue.»
-- «e.g., Revenue grew/declined M% month-over-month, peaking in [month].»
-- «e.g., Discounts above X% eroded profit margin without a matching lift in quantity.»
-- «e.g., [Category/region] had the highest return rate at X%.»
+Across five business questions, one pattern held: **the product dimension carried
+real signal, while customer and pricing dimensions were largely flat** — a result
+consistent with the dataset being synthetically generated.
 
-_(Findings to be filled in as each query is run.)_
+- **Electronics dominates revenue.** Total revenue is heavily concentrated in one
+  category — Electronics brings in over 3× the next-largest (Home), while Grocery
+  and Toys trail far behind.
+- **Revenue is mildly seasonal.** Month-over-month change stays within ±10% for
+  most months, with two recurring patterns across both full years: a January dip
+  (post-holiday, ~−15% to −19%) and consistent March and December growth.
+  *(The dataset's first and last months were partial and excluded from this trend.)*
+- **Discounting erodes profit without driving volume.** As discounts deepen,
+  average per-order profit falls steadily (~$30 → ~$22, a ~28% drop), while average
+  units per order stay flat (~1.5). Deeper discounts amount to giving away margin
+  for no gain in volume.
+- **Returns are driven by category, not price or geography.** Return rates vary
+  sharply by product — Fashion (8%) and Electronics (7%) highest, Grocery (1%)
+  lowest — but stay flat (~5–6%) across every discount level and region. The
+  category pattern matches intuition: apparel and electronics are returned far
+  more often than perishable groceries, which are rarely sent back.
+- **Customer value is evenly distributed.** Revenue per customer is nearly
+  identical across gender and (equal-width) age groups. Regionally, four of five
+  areas cluster tightly (~$260/customer), with Central a mild exception (~$232),
+  driven by slightly lower order frequency.
+
+**Analytical note:** Several columns were verified before use — `total_amount` was
+confirmed to be net of discount, while `profit_margin` could not be reconciled to
+the available columns (no cost-of-goods field is provided), so profit findings are
+reported with that caveat. Apparent effects that proved to be artifacts of bucket 
+width or group size — an initial "40+ customers spend most" and "South is the top 
+region" — were identified and corrected by normalizing to comparable, per-unit measures.
 
 ## 🛠️ Tools & Approach
 
@@ -74,7 +100,7 @@ Sample e-commerce dataset of ~34,500 orders. Columns include order and customer
 IDs, product category, price, discount, quantity, order date, region, return
 status, total amount, shipping cost, profit margin, and customer demographics.
 
-_Source: «add dataset source / Kaggle link»_
+_Source: [E-commerce Sales Transactions Dataset (Kaggle)](https://www.kaggle.com/datasets/miadul/e-commerce-sales-transactions-dataset/data)
 
 ## 📁 Repository Contents
 
