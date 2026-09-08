@@ -50,7 +50,7 @@ consistent with the dataset being synthetically generated.
   more often than perishable groceries, which are rarely sent back.
 - **Customer value is evenly distributed.** Revenue per customer is nearly
   identical across gender and (equal-width) age groups. Regionally, four of five
-  areas cluster tightly (~$260/customer), with Central a mild exception (~$232),
+  areas cluster tightly (\~$260/customer), with Central a mild exception (\~$232),
   driven by slightly lower order frequency.
 
 **Analytical note:** Several columns were verified before use — `total_amount` was
